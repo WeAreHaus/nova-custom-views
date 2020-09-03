@@ -212,7 +212,7 @@ class ViewsCommand extends Command
      */
     protected function runCommand($command, $path, OutputInterface $output)
     {
-        $process = (new Process($command, $path))->setTimeout(null);
+        $process = (new Process(array($command), $path))->setTimeout(null);
 
         if ('\\' !== DIRECTORY_SEPARATOR && file_exists('/dev/tty') && is_readable('/dev/tty')) {
             $process->setTty(true);
